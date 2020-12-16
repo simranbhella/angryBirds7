@@ -9,7 +9,7 @@ var backgroundImg,platform;
 var bird, slingshot;
 
 var gameState = "onSling";
-var bg = "sprites/bg1.png";
+var bg = "sprites/bg.png";
 var score = 0;
 
 function preload() {
@@ -99,14 +99,14 @@ function keyPressed(){
 }
 
 async function getBackgroundImg(){
-    var response = await fetch("https://worldtimeapi.org/api/timezone/America/Toronto/");
+    var response = await fetch("http://worldtimeapi.org/api/timezone/America/Toronto/");
     var responseJSON = await response.json();
 
     var datetime = responseJSON.datetime;
     var hour = datetime.slice(11,13);
     
     if(hour>=6 && hour<=19){
-        bg = "sprites/bg1.png";
+        bg = "sprites/bg.png";
     }
     else{
         bg = "sprites/bg2.jpg";
